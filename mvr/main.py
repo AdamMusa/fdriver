@@ -1,19 +1,20 @@
 import os
 import typer
+from generator import files
 
 app = typer.Typer()
-files = ["models.py","views.py","routes.py","database.py"]
 @app.command()
 def init(name: str):
     os.mkdir(os.path.join(os.getcwd(),name))
     os.mkdir(os.path.join(os.getcwd(),name+"/fastapi"))
+    for i in range(2):
+        with open(f"./{list(files.keys())[i]}",'w') as file:
+            file.write(files[list(files.keys())[i]])
     with open(f"./{name}/fastapi/__init__.py",'w') as file:
         pass
-    for file_name in files:
+    for file_name,value in files.items():
         with open(f"./{name}/{file_name}",'w') as file:
-            for i in range(len(files)+1):
-                file.write("print('hello world')")
-                break
+            file.write(value)
     
     typer.echo(f"Created project {name} successfully.\ncd {name}")
 
