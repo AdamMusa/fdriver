@@ -6,15 +6,15 @@ app = typer.Typer()
 @app.command()
 def init(name: str):
     os.mkdir(os.path.join(os.getcwd(),name))
-    os.mkdir(os.path.join(os.getcwd(),name+"/fastapi"))
+    os.mkdir(os.path.join(os.getcwd(),name+f"/{name}"))
     for i in range(2):
         with open(f"./{list(files.keys())[i]}",'w') as file:
             file.write(files[list(files.keys())[i]])
-    with open(f"./{name}/fastapi/__init__.py",'w') as file:
+    with open(f"./{name}/{name}/__init__.py",'w') as file:
         pass
-    for file_name,value in files.items():
-        with open(f"./{name}/{file_name}",'w') as file:
-            file.write(value)
+    for i in range(2,(len(files))):
+        with open(f"./{name}/{list(files.keys())[i]}",'w') as file:
+            file.write(files[list(files.keys())[i]])
     
     typer.echo(f"Created project {name} successfully.\ncd {name}")
 
