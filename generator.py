@@ -5,11 +5,13 @@ if __name__ =="__main__" :
     routes
 
 """,
-"database.py": """#configuration for database""",
-"models.py": """from pydantic import BaseModel""",
+"settings.py": """#configuration for database""",
+"models.py": """#implement your routes here
+from pydantic import BaseModel""",
 
 "routes.py":
-"""from fastapi import FastAPI
+"""#implement your routes here
+from fastapi import FastAPI
 from .views import home
 
 app = FastAPI()
@@ -26,7 +28,9 @@ async def homePage():
 
 """,
     
-"views.py":"""async def home():
+"views.py":"""#implement your views here
+
+async def home():
     return {"Welcome":"To HomePage"}
     
 #You can also create your method withou async keyword 
