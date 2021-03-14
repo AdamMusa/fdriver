@@ -23,6 +23,15 @@ def startapp(name: str):
     create_files(name,files)
     typer.echo(f"Created module {name} successfully")
 
+
+#command to remove app
+@app.command()
+def remove(name: str):
+    os.removedirs(os.path.join(os.getcwd()+f"/{name}"))
+    typer.echo(f"Removed successfully {name}")
+    
+    
+
 #create folders
 def create_folder(name):
     os.mkdir(os.path.join(os.getcwd(),name))
@@ -35,6 +44,8 @@ def create_files(name,files):
     for i in range(2,(len(files))):
         with open(f"./{name}/{list(files.keys())[i]}",'w') as file:
             file.write(files[list(files.keys())[i]])
+
+
 
 if __name__ =="__main__" :
     app()
