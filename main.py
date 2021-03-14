@@ -28,8 +28,11 @@ def startapp(name: str):
 #command to remove app
 @app.command()
 def remove(name: str):
-    shutil.rmtree(os.path.join(os.getcwd(),name))
-    typer.echo(f"Removed successfully {name}")
+    try:
+        shutil.rmtree(os.path.join(os.getcwd(),name))
+        typer.echo(f"Removed successfully {name}")
+    except FileNotFoundError:
+        typer.echo("No such file or directory")
     
     
 
