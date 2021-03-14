@@ -1,5 +1,6 @@
 import os
 import typer
+import shutil
 from generator import files
 
 app = typer.Typer()
@@ -27,7 +28,7 @@ def startapp(name: str):
 #command to remove app
 @app.command()
 def remove(name: str):
-    os.removedirs(os.path.join(os.getcwd()+f"/{name}"))
+    shutil.rmtree(os.path.join(os.getcwd(),name))
     typer.echo(f"Removed successfully {name}")
     
     
