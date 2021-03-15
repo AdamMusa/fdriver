@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
 # the name must match the folder name 'verysimplemodule'
-    name="mvr", 
+    name="mVr", 
     version="0.0.1",
     author="AdamMusa",
     author_email="<adammusa2222@gmail.com>",

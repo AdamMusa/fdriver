@@ -2,12 +2,12 @@ CHANGELOG.txt
 LICENCE.txt
 MANIFEST.in
 README.txt
-__init__.py
-db_config_generators.py
-generator.py
-main.py
 requirements.txt
 setup.py
+mvr/__init__.py
+mvr/db_config_generators.py
+mvr/generator.py
+mvr/main.py
 mvr.egg-info/PKG-INFO
 mvr.egg-info/SOURCES.txt
 mvr.egg-info/dependency_links.txt
