@@ -17,11 +17,7 @@ setup(
     
     keywords=['mvr','python mvr','mvr python' 'fastapi mvr','mvr fastapi','mvc for fastapi','goode architecture for fastapi'],
     classifiers= [
-        "Development Status :: 5 - beta",
-        "Operating System :: MacOS :: MacOS X",
-        "Operating System :: Unix :: Linux ",
         "License :: OSI Approved :: MIT License",
-        "Operating System :: Microsoft :: Windows",
-        "Programming Language :: Python :: 3.6+",
+        "Programming Language :: Python :: 3.7",
     ]
 )

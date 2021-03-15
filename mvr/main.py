@@ -22,7 +22,7 @@ def init(name: str):
                 file.write(files[list(files.keys())[i]])
     create_files(name, files)
 
-    typer.echo(f"Created project {name} successfully.\ncd {name}")
+    typer.echo(f"Created project {name} successfully 🎉🎉🎉.\ncd {name}")
 
     print(projectName)
 # command to start to create app modular
@@ -30,7 +30,7 @@ def init(name: str):
 def startapp(name: str):
     create_folder(name)
     create_files(name, files)
-    typer.echo(f"Created module {name} successfully")
+    typer.echo(f"Created module {name} successfully 🎉🎉🎉")
 
 
 # command to remove app

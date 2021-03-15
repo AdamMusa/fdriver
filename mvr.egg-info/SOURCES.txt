@@ -1,0 +1,15 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+__init__.py
+db_config_generators.py
+generator.py
+main.py
+requirements.txt
+setup.py
+mvr.egg-info/PKG-INFO
+mvr.egg-info/SOURCES.txt
+mvr.egg-info/dependency_links.txt
+mvr.egg-info/requires.txt
+mvr.egg-info/top_level.txt
