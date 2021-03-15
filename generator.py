@@ -16,6 +16,7 @@ async def homePage():
 
 """,
 "settings.py": """#configuration for database""",
+"test.py":"""#implement your test here""",
 "models.py": """#implement your routes here
 from pydantic import BaseModel""",
     
