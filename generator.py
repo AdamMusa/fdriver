@@ -1,18 +1,7 @@
 files = {
-"server.py":"""from . import routes
-
-if __name__ =="__main__" :
-    routes
-
-""",
-"settings.py": """#configuration for database""",
-"models.py": """#implement your routes here
-from pydantic import BaseModel""",
-
-"routes.py":
-"""#implement your routes here
+"server.py":"""#implement your routes here
 from fastapi import FastAPI
-from .views import home
+from {}.views import home
 
 app = FastAPI()
 
@@ -25,8 +14,10 @@ async def homePage():
 # def homePage():
 #     return home()
 
-
 """,
+"settings.py": """#configuration for database""",
+"models.py": """#implement your routes here
+from pydantic import BaseModel""",
     
 "views.py":"""#implement your views here
 

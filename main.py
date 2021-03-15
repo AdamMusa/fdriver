@@ -16,7 +16,10 @@ def init(name: str):
     create_folder(name)
     for i in range(2):
         with open(f"./{list(files.keys())[i]}", 'w') as file:
-            file.write(files[list(files.keys())[i]])
+            if i==0:
+                file.write(str(files[list(files.keys())[i]]).format(name))
+            else:
+                file.write(files[list(files.keys())[i]])
     create_files(name, files)
 
     typer.echo(f"Created project {name} successfully.\ncd {name}")
@@ -45,7 +48,7 @@ def run(prod: bool = typer.Option(False)):
     args = []
     if not prod:
         args.append("--reload")
-    app_file = os.getenv("FASTAPI_APP", "ahmat"+".routes")
+    app_file = os.getenv("FASTAPI_APP", "server")
     subprocess.call(["uvicorn", f"{app_file}:app", *args])
     
     
