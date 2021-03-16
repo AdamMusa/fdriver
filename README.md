@@ -5,7 +5,8 @@
 * #### Handles the project structuring for you.
 * #### Handles the Dockerfile generation.
 * #### Handles the docker-compose generation for your project needs.
-* ### Handles to generate model && routes or path naming convention by fastapi community
+* ### Handles to generate model && routes or path naming convention by  fastapi community
+
 
 
 ## Installation 📌
