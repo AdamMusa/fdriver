@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: fdriver
+Version: 0.0.4
+Summary: this package is inspired by, the mvc architecture
+Home-page: UNKNOWN
+Author: AdamMusa
+Author-email: <adammusa2222@gmail.com>
+License: MIT
+Description: documentation not yet 
+        
+        Change log
+        ==========
+        0.0.1 ()
+        ==========
+        
+        -First Release
+Keywords: mvr,python mvr,mvr pythonfastapi mvr,mvr fastapi,mvc for fastapi,goode architecture for fastapi
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
