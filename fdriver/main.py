@@ -6,9 +6,19 @@ from .generator import files
 
 app = typer.Typer()
 
+valid_names = ["init", "startapp", "run","remove"]
+
+
+def complete_name(incomplete: str):
+    completion = []
+    for name in valid_names:
+        if name.startswith(incomplete):
+            completion.append(name)
+    return completion
+
 
 # command to create project
-@app.command(help="Allowed you to create project")
+@app.command(help="To create a new Project")
 def init(name: str=typer.Option(
         "", help="start project.", autocompletion=complete_name
     )):
@@ -26,7 +36,7 @@ def init(name: str=typer.Option(
 
 
 # command to start to create app modular
-@app.command(help="To start to application in your project")
+@app.command(help="To start Application in your Project")
 def startapp(name: str=typer.Option(
         "", help="startapp.", autocompletion=complete_name
     )):
@@ -36,7 +46,7 @@ def startapp(name: str=typer.Option(
 
 
 # command to remove app
-@app.command(help="Remove application")
+@app.command(help="Remove Application")
 def remove(name: str=typer.Option(
         "", help="for removing file.", autocompletion=complete_name
     )):
@@ -48,10 +58,8 @@ def remove(name: str=typer.Option(
 
 
 #allow to run fastapi server
-@app.command(help="Run a FastAPI server.")
-def run(prod: bool = typer.Option(False)=typer.Option(
-        "", help="allowed you to start easily your server.", autocompletion=complete_name
-    )):
+@app.command(help="Run a FastAPI Server.")
+def run(prod: bool = typer.Option(False)):
     args = []
     if not prod:
         args.append("--reload")
@@ -75,15 +83,7 @@ def create_files(name, files):
             file.write(files[list(files.keys())[i]])
 
 
-valid_names = ["init", "startapp", "run","remove"]
 
-
-def complete_name(incomplete: str):
-    completion = []
-    for name in valid_names:
-        if name.startswith(incomplete):
-            completion.append(name)
-    return completion
 
 if __name__ == "__main__":
     app()
