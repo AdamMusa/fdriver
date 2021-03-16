@@ -8,6 +8,7 @@
 * ### Handles to generate model && routes or path naming convention by fastapi community
 
 
+
 ## Installation 📌
 
 * Prerequisites
