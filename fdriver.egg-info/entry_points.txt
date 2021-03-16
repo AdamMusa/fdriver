@@ -1,0 +1,3 @@
+[console_scripts]
+fdriver = fdriver.main:app
+
