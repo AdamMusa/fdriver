@@ -4,11 +4,11 @@ from setuptools import setup, find_packages
 setup(
 # the name must match the folder name 'verysimplemodule'
     name="fdriver", 
-    version="0.0.1",
+    version="0.0.2",
     author="AdamMusa",
     author_email="<adammusa2222@gmail.com>",
     description="this package is inspired by, the mvc architecture",
-    long_description=open("README.txt").read() +"\n\n"+open("CHANGELOG.txt").read(),
+    long_description=open("README.md").read() +"\n\n"+open("CHANGELOG.txt").read(),
     url ="",
     license = "MIT",
     packages=find_packages(),

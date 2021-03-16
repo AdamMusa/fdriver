@@ -28,7 +28,7 @@ def init(name: str):
 def startapp(name: str):
     create_folder(name)
     create_files(name, files)
-    typer.echo(f"Created module {name} successfully 🎉🎉🎉",, fg=typer.colors.GREEN)
+    typer.echo(f"Created module {name} successfully 🎉🎉🎉", fg=typer.colors.GREEN)
 
 
 # command to remove app
