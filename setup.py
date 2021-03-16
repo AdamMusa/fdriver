@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
 # the name must match the folder name 'verysimplemodule'
-    name="mVr", 
+    name="fdriver", 
     version="0.0.1",
     author="AdamMusa",
     author_email="<adammusa2222@gmail.com>",
@@ -19,5 +19,11 @@ setup(
     classifiers= [
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3.7",
-    ]
+    ],
+    entry_points={
+        'console_scripts':[
+            'fdriver=fdriver.main:app',
+            
+        ]
+    }
 )

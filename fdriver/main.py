@@ -2,13 +2,14 @@ import os
 import typer
 import shutil
 import subprocess
-from generator import files
+from .generator import files
 
 app = typer.Typer()
 
 
-
-projectName = ""
+@app.command()
+def hello():
+    typer.echo("Hello world")
 # command to create project
 @app.command()
 def init(name: str):

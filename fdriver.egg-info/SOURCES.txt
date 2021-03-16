@@ -1,0 +1,17 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+requirements.txt
+setup.py
+fdriver/__init__.py
+fdriver/__main__.py
+fdriver/db_config_generators.py
+fdriver/generator.py
+fdriver/main.py
+fdriver.egg-info/PKG-INFO
+fdriver.egg-info/SOURCES.txt
+fdriver.egg-info/dependency_links.txt
+fdriver.egg-info/entry_points.txt
+fdriver.egg-info/requires.txt
+fdriver.egg-info/top_level.txt
