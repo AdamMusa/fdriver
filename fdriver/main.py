@@ -7,13 +7,10 @@ from .generator import files
 app = typer.Typer()
 
 
-@app.command()
-def hello():
-    typer.echo("Hello world")
 # command to create project
 @app.command()
 def init(name: str):
-    projectName = name
+
     create_folder(name)
     for i in range(2):
         with open(f"./{list(files.keys())[i]}", 'w') as file:
@@ -25,7 +22,7 @@ def init(name: str):
 
     typer.echo(f"Created project {name} successfully 🎉🎉🎉.\ncd {name}")
 
-    print(projectName)
+
 # command to start to create app modular
 @app.command()
 def startapp(name: str):
@@ -42,6 +39,7 @@ def remove(name: str):
         typer.echo(f"Removed successfully {name}")
     except FileNotFoundError:
         typer.echo("No such file or directory")
+
 
 #allow to run fastapi server
 @app.command(help="Run a FastAPI application.")
