@@ -1,10 +1,10 @@
 Metadata-Version: 1.1
 Name: fdriver
-Version: 0.0.5
+Version: 0.0.6
 Summary: this package is inspired by, the mvc architecture
 Home-page: https://github.com/AdamMusa/fdriver
 Author: AdamMusa
-Author-email: <adammusa2222@gmail.com>
+Author-email: adammusa2222@gmail.com
 License: MIT
 Description: ##  Features 🚀
         
@@ -67,7 +67,7 @@ Description: ##  Features 🚀
         
         Change log
         ==========
-        0.0.4 (16/04/2021
+        0.0.6 (16/04/2021
         
         -First Release
 Keywords: mvr,python mvr,mvr pythonfastapi mvr,mvr fastapi,mvc for fastapi,goode architecture for fastapi
