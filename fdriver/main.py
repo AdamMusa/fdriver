@@ -2,7 +2,7 @@ import os
 import typer
 import shutil
 import subprocess
-from .generator import files
+from fdriver.generator import files,app_files
 
 app = typer.Typer()
 
@@ -19,9 +19,7 @@ def complete_name(incomplete: str):
 
 # command to create project
 @app.command(help="To create a new Project")
-def init(name: str=typer.Option(
-        "", help="start project.", autocompletion=complete_name
-    )):
+def init(name: str):
 
     create_folder(name)
     for i in range(2):
@@ -37,19 +35,15 @@ def init(name: str=typer.Option(
 
 # command to start to create app modular
 @app.command(help="To start Application in your Project")
-def startapp(name: str=typer.Option(
-        "", help="startapp.", autocompletion=complete_name
-    )):
+def startapp(name: str):
     create_folder(name)
-    create_files(name, files)
-    typer.echo(f"Created module {name} successfully 🎉🎉🎉", fg=typer.colors.GREEN)
+    create_files(name, app_files)
+    typer.secho(f"Created module {name} successfully 🎉🎉🎉", fg=typer.colors.GREEN)
 
 
 # command to remove app
 @app.command(help="Remove Application")
-def remove(name: str=typer.Option(
-        "", help="for removing file.", autocompletion=complete_name
-    )):
+def remove(name: str):
     try:
         shutil.rmtree(os.path.join(os.getcwd(), name))
         typer.echo(f"Removed successfully {name}")
@@ -79,8 +73,12 @@ def create_files(name, files):
     with open(f"./{name}/{name}/__init__.py", 'w') as file:
         pass
     for i in range(2, (len(files))):
-        with open(f"./{name}/{list(files.keys())[i]}", 'w') as file:
-            file.write(files[list(files.keys())[i]])
+        if i==(len(files)-1):
+            with open(f"./{name}/{list(files.keys())[i]}", 'w') as file:
+                file.write(str(files[list(files.keys())[i]]).format(name))
+        else:
+            with open(f"./{name}/{list(files.keys())[i]}", 'w') as file:
+                file.write(files[list(files.keys())[i]])
 
 
 
