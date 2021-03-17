@@ -9,7 +9,7 @@ setup(
     author_email="<adammusa2222@gmail.com>",
     description="this package is inspired by, the mvc architecture",
     long_description=open("README.md").read() +"\n\n"+open("CHANGELOG.txt").read(),
-    url ="",
+    url ="https://github.com/AdamMusa/fdriver",
     license = "MIT",
     packages=find_packages(),
     install_requires=["fastapi","uvicorn","typer"], # add any additional packages that 

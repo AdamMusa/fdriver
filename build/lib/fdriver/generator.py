@@ -30,6 +30,5 @@ async def home():
 #     return {"Welcome":"To HomePage"}
     
 """,
-"routes":"""#implement here your routes"""
 }
 
