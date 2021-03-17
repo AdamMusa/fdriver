@@ -69,18 +69,16 @@ def create_folder(name):
 
 
 # create some files
-def create_files(name, files):
+def create_files(name, data):
     with open(f"./{name}/{name}/__init__.py", 'w') as file:
         pass
-    for i in range(2, (len(files))):
-        if i==(len(files)-1):
-            with open(f"./{name}/{list(files.keys())[i]}", 'w') as file:
-                file.write(str(files[list(files.keys())[i]]).format(name))
+    for i in range(2, (len(data))):
+        if i==(len(data)-1):
+            with open(f"./{name}/{list(data.keys())[i]}", 'w') as file:
+                file.write(str(data[list(data.keys())[i]]).format(name))
         else:
-            with open(f"./{name}/{list(files.keys())[i]}", 'w') as file:
-                file.write(files[list(files.keys())[i]])
-
-
+            with open(f"./{name}/{list(data.keys())[i]}", 'w') as file:
+                file.write(data[list(data.keys())[i]])
 
 
 if __name__ == "__main__":

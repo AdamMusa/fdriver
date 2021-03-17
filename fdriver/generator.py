@@ -44,36 +44,10 @@ async def homePage():
 }
 
 app_files = {
-"":"",
-"":"",
+"server.py ":" ",
+"settings.py":" ",
+"models.py": """#implement your models here from pydantic import BaseModel""",
+"views.py":"""#implement your views here""",
+"routes.py":"""#implement your routes here""",
 "test.py":"""#implement your test here""",
-
-"models.py": """#implement your models here
-from pydantic import BaseModel""",
-    
-"views.py":"""#implement your views here
-
-async def aboutView():
-    return {"Welcome":"To AboutPage"}
-    
-#You can also create your method withou async keyword 
-# def aboutView():
-#     return {"Welcome":"To AboutPage"}
-    
-""",
-"routes.py":"""#implement here your routes
-
-from fastapi import APIRouter
-from {}.views import aboutView
-
-router_app = APIRouter()
-
-@router.get("/about")
-async def aboutPage():
-    return await aboutView()
-
-#You can also create your method withou async keywork then you can call your method withou await
-# @router.get("/")
-# def aboutPage():
-#     return aboutView()"""
 }
