@@ -21,16 +21,20 @@ def complete_name(incomplete: str):
 @app.command(help="To create a new Project")
 def init(name: str):
 
-    create_folder(name)
-    for i in range(2):
-        with open(f"./{list(files.keys())[i]}", 'w') as file:
-            if i==0:
-                file.write(str(files[list(files.keys())[i]]).format(name))
-            else:
-                file.write(files[list(files.keys())[i]])
-    create_files(name, files)
+    try:
+        create_folder(name)
+        for i in range(2):
+            with open(f"./{list(files.keys())[i]}", 'w') as file:
+                if i==0:
+                    file.write(str(files[list(files.keys())[i]]).format(name))
+                else:
+                    file.write(files[list(files.keys())[i]])
+        create_files(name, files)
 
-    typer.secho(f"Created project {name} successfully 🎉🎉🎉.\ncd {name}", fg=typer.colors.GREEN)
+        typer.secho(f"Created project {name} successfully 🎉🎉🎉.\ncd {name}", fg=typer.colors.GREEN)
+    except FileExistsError:
+        typer.secho(f" File {name} exist ", fg=typer.colors.RED)
+    
 
 
 # command to start to create app modular
