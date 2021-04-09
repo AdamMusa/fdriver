@@ -6,17 +6,6 @@ from fdriver.generators.generator import files,app_files
 
 app = typer.Typer()
 
-valid_names = ["init", "startapp", "run","remove"]
-
-
-def complete_name(incomplete: str):
-    completion = []
-    for name in valid_names:
-        if name.startswith(incomplete):
-            completion.append(name)
-    return completion
-
-
 # command to create project
 @app.command(help="To create a new Project")
 def init(name: str):
@@ -34,8 +23,6 @@ def init(name: str):
         typer.secho(f"Created project {name} successfully 🎉🎉🎉.\ncd {name}", fg=typer.colors.GREEN)
     except FileExistsError:
         typer.secho(f" File {name} exist ", fg=typer.colors.RED)
-    
-
 
 # command to start to create app modular
 @app.command(help="To start Application in your Project")
@@ -50,8 +37,6 @@ def startapp(name: str):
     except FileExistsError:
         typer.secho(f" File {name} exist ", fg=typer.colors.RED)
 
-
-
 # command to remove app
 @app.command(help="Remove Application")
 def remove(name: str):
@@ -60,7 +45,6 @@ def remove(name: str):
         typer.echo(f"Removed successfully {name}")
     except FileNotFoundError:
         typer.echo("No such file or directory")
-
 
 #allow to run fastapi server
 @app.command(help="Run a FastAPI Server.")
@@ -76,8 +60,6 @@ def create_folder(name):
     os.mkdir(os.path.join(os.getcwd(), name))
     os.mkdir(os.path.join(os.getcwd(), name+f"/{name}"))
 
-
-
 # create some files
 def create_files(name, data):
     with open(f"./{name}/{name}/__init__.py", 'w') as file:
@@ -90,6 +72,6 @@ def create_files(name, data):
             with open(f"./{name}/{list(data.keys())[i]}", 'w') as file:
                 file.write(data[list(data.keys())[i]])
 
-
+# we run this app in this if statement
 if __name__ == "__main__":
     app()
