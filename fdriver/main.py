@@ -22,7 +22,7 @@ def init(name: str):
 
         typer.secho(f"Created project {name} successfully 🎉🎉🎉.\ncd {name}", fg=typer.colors.GREEN)
     except FileExistsError:
-        typer.secho(f" File {name} exist ", fg=typer.colors.RED)
+        typer.secho(f" File {name} exist  😞", fg=typer.colors.RED)
 
 # command to start to create app modular
 @app.command(help="To start Application in your Project")
@@ -33,18 +33,26 @@ def startapp(name: str):
             create_files(name, app_files)
             typer.secho(f"Created module {name} successfully 🎉🎉🎉", fg=typer.colors.GREEN)
         else:
-            typer.secho(f"You have to create project before to create app ", fg=typer.colors.RED)
+            typer.secho(f"You have to create project before to create app 😞 ", fg=typer.colors.RED)
     except FileExistsError:
         typer.secho(f" File {name} exist ", fg=typer.colors.RED)
 
 # command to remove app
 @app.command(help="Remove Application")
 def remove(name: str):
+    ask = typer.prompt("Are you sur ?  yes(y) or no(n) ")
     try:
-        shutil.rmtree(os.path.join(os.getcwd(), name))
-        typer.echo(f"Removed successfully {name}")
+        if ask.lower() in ["y", "yes"]:
+            shutil.rmtree(os.path.join(os.getcwd(), name))
+            os.remove("server.py")
+            os.remove("settings.py")
+            typer.echo(f"Removed successfully {name} 😞")
+        else:
+            typer.secho(f"Canceled  successfully ", fg=typer.colors.GREEN)
     except FileNotFoundError:
-        typer.echo("No such file or directory")
+        typer.echo("No such file or directory 😞")
+
+
 
 #allow to run fastapi server
 @app.command(help="Run a FastAPI Server.")
