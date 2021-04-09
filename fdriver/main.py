@@ -41,12 +41,15 @@ def init(name: str):
 @app.command(help="To start Application in your Project")
 def startapp(name: str):
     try:
-        create_folder(name)
-        create_files(name, app_files)
-        typer.secho(f"Created module {name} successfully 🎉🎉🎉", fg=typer.colors.GREEN)
+        if os.path.isfile("server.py"):
+            create_folder(name)
+            create_files(name, app_files)
+            typer.secho(f"Created module {name} successfully 🎉🎉🎉", fg=typer.colors.GREEN)
+        else:
+            typer.secho(f"You have to create project before to create app ", fg=typer.colors.RED)
     except FileExistsError:
         typer.secho(f" File {name} exist ", fg=typer.colors.RED)
-    
+
 
 
 # command to remove app
@@ -67,13 +70,12 @@ def run(prod: bool = typer.Option(False)):
         args.append("--reload")
     app_file = os.getenv("FASTAPI_APP", "server")
     subprocess.call(["uvicorn", f"{app_file}:app", *args])
-    
-    
+
 # create folders
 def create_folder(name):
     os.mkdir(os.path.join(os.getcwd(), name))
     os.mkdir(os.path.join(os.getcwd(), name+f"/{name}"))
-    
+
 
 
 # create some files
