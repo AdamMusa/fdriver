@@ -58,11 +58,11 @@ def run(prod: bool = typer.Option(False)):
 # create folders
 def create_folder(name):
     os.mkdir(os.path.join(os.getcwd(), name))
-    os.mkdir(os.path.join(os.getcwd(), name+f"/{name}"))
+    # os.mkdir(os.path.join(os.getcwd(), name+f"/{name}"))
 
 # create some files
 def create_files(name, data):
-    with open(f"./{name}/{name}/__init__.py", 'w') as file:
+    with open(f"./{name}/__init__.py", 'w') as file:
         pass
     for i in range(2, (len(data))):
         if i==(len(data)-1):
