@@ -12,14 +12,9 @@ def init(name: str):
 
     try:
         create_folder(name)
-        for i in range(2):
-            with open(f"./{list(files.keys())[i]}", 'w') as file:
-                if i==0:
-                    file.write(str(files[list(files.keys())[i]]).format(name))
-                else:
-                    file.write(files[list(files.keys())[i]])
+        with open(f"./{list(files.keys())[0]}", 'w') as file:
+            file.write(str(files[list(files.keys())[0]]).format(name))
         create_files(name, files)
-
         typer.secho(f"Created project {name} successfully 🎉🎉🎉.\ncd {name}", fg=typer.colors.GREEN)
     except FileExistsError:
         typer.secho(f" File {name} exist  😞", fg=typer.colors.RED)
@@ -72,7 +67,7 @@ def create_folder(name):
 def create_files(name, data):
     with open(f"./{name}/__init__.py", 'w') as file:
         pass
-    for i in range(2, (len(data))):
+    for i in range(1, (len(data))):
         if i==(len(data)-1):
             with open(f"./{name}/{list(data.keys())[i]}", 'w') as file:
                 file.write(str(data[list(data.keys())[i]]).format(name))
