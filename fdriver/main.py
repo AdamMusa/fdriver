@@ -2,7 +2,7 @@ import os
 import typer
 import shutil
 import subprocess
-from fdriver.generator import files,app_files
+from fdriver.generators.generator import files,app_files
 
 app = typer.Typer()
 
@@ -40,9 +40,13 @@ def init(name: str):
 # command to start to create app modular
 @app.command(help="To start Application in your Project")
 def startapp(name: str):
-    create_folder(name)
-    create_files(name, app_files)
-    typer.secho(f"Created module {name} successfully 🎉🎉🎉", fg=typer.colors.GREEN)
+    try:
+        create_folder(name)
+        create_files(name, app_files)
+        typer.secho(f"Created module {name} successfully 🎉🎉🎉", fg=typer.colors.GREEN)
+    except FileExistsError:
+        typer.secho(f" File {name} exist ", fg=typer.colors.RED)
+    
 
 
 # command to remove app
