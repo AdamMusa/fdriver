@@ -40,14 +40,11 @@ def remove(name: str):
         if ask.lower() in ["y", "yes"]:
             shutil.rmtree(os.path.join(os.getcwd(), name))
             os.remove("server.py")
-            os.remove("settings.py")
             typer.echo(f"Removed successfully {name} 😞")
         else:
             typer.secho(f"Canceled  successfully ", fg=typer.colors.GREEN)
     except FileNotFoundError:
         typer.echo("No such file or directory 😞")
-
-
 
 #allow to run fastapi server
 @app.command(help="Run a FastAPI Server.")

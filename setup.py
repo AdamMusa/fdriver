@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 
 setup(
 # the name must match the folder name 'verysimplemodule'
-    name="fdriver", 
-    version="0.0.6",
+    name="fdriver",
+    version="0.0.7",
     author="AdamMusa",
     author_email="adammusa2222@gmail.com",
     description="this package is inspired by, the mvc architecture",
@@ -14,7 +14,7 @@ setup(
     packages=find_packages(),
     install_requires=["fastapi","uvicorn","typer"], # add any additional packages that 
     # needs to be installed along with your package. Eg: 'caer'
-    
+
     keywords=['mvr','python mvr','mvr python' 'fastapi mvr','mvr fastapi','mvc for fastapi','goode architecture for fastapi'],
     classifiers= [
         "License :: OSI Approved :: MIT License",
@@ -23,7 +23,11 @@ setup(
     entry_points={
         'console_scripts':[
             'fdriver=fdriver.main:app',
-            
+
         ]
     }
 )
+
+
+#python stupe.py sdist
+# twine upload dist/*
