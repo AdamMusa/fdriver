@@ -2,7 +2,7 @@ import os
 import typer
 import shutil
 import subprocess
-from fdriver.generators.generator import files,app_files
+from .generators.generator import files,app_files
 
 app = typer.Typer()
 
@@ -14,7 +14,7 @@ def init(name: str):
         create_folder(name)
         with open(f"./{list(files.keys())[0]}", 'w') as file:
             file.write(str(files[list(files.keys())[0]]).format(name))
-        create_files(name, files)
+        create_files(name, files,1)
         typer.secho(f"Created project {name} successfully 🎉🎉🎉.\ncd {name}", fg=typer.colors.GREEN)
     except FileExistsError:
         typer.secho(f" File {name} exist  😞", fg=typer.colors.RED)
@@ -25,7 +25,7 @@ def startapp(name: str):
     try:
         if os.path.isfile("server.py"):
             create_folder(name)
-            create_files(name, app_files)
+            create_files(name, app_files,2)
             typer.secho(f"Created module {name} successfully 🎉🎉🎉", fg=typer.colors.GREEN)
         else:
             typer.secho(f"You have to create project before to create app 😞 ", fg=typer.colors.RED)
@@ -61,10 +61,10 @@ def create_folder(name):
     # os.mkdir(os.path.join(os.getcwd(), name+f"/{name}"))
 
 # create some files
-def create_files(name, data):
+def create_files(name, data,number):
     with open(f"./{name}/__init__.py", 'w') as file:
         pass
-    for i in range(1, (len(data))):
+    for i in range(number, (len(data))):
         if i==(len(data)-1):
             with open(f"./{name}/{list(data.keys())[i]}", 'w') as file:
                 file.write(str(data[list(data.keys())[i]]).format(name))

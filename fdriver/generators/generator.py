@@ -8,20 +8,19 @@ app = FastAPI()
 
 app.include_router(router)
 """,
-
 "settings.py": """#configuration for database""",
 
 "test.py":"""#implement your test here""",
 
 "models.py": """#implement your models here
 from pydantic import BaseModel""",
-    
+
 "views.py":"""#implement your views here
 
 async def homeView():
     return {"Welcome":"To HomePage"}
-    
-#You can also create your method withou async keyword 
+
+#You can also create your method withou async keyword
 # def homeView():
 #     return {"Welcome":"To HomePage"}
     
